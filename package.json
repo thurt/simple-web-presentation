@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "Developer Profile for Taylor Hurt",
   "scripts": {
-    "compile": "node compile/compile.js"
+    "compile": "node compile/compile.js && webpack js/main.js bundle.js"
   },
   "author": "thurt",
   "license": "ISC",
   "devDependencies": {
     "handlebars": "^4.0.5",
-    "icon-gen": "^1.0.5"
+    "icon-gen": "^1.0.5",
+    "webpack": "^2.2.0-rc.3"
   },
   "dependencies": {}
 }

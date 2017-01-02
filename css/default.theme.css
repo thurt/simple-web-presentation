@@ -9,18 +9,26 @@ a {
   text-decoration: none;
 }
 
-nav {
+.nav {
   align-self: center;
   font-size: calc(13px + 1vw);
   color: #353535;
   flex: none;
 }
 
-nav span {
+.nav .dot {
   cursor: pointer;
 }
 
-section {
+.nav .dot.active:before {
+  content: '\26AB';
+}
+
+.nav .dot.inactive:before {
+  content: '\26AA';
+}
+
+.slide {
   margin-top: 1em;
   margin-bottom: 1em;
   padding: 5vh 5vw;
@@ -31,17 +39,25 @@ section {
   box-shadow: .05em .1em .2em #888888;
 }
 
-section h1 {
+.slide.active {
+  display: initial;
+}
+
+.slide.inactive {
+  display: none;
+}
+
+.slide h1 {
   margin: 0;
 }
 
-section h2 {
+.slide h2 {
   margin: 0;
   color: #1693a5;
   font-size: calc(11px + 1vw);
 }
 
-section ul {
+.slide ul {
   padding-left: 1em;
 }
 
