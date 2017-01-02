@@ -14,7 +14,7 @@ const create = (TYPE) => {
   return $el
 }
 //:: <SlideChanger> -> ((HTMLElement<TYPE.SLIDE.ELEMENT>, number) -> _)
-const initSlide = (SlideChanger) => ($slide, i) => {
+const initSlideDot = (SlideChanger) => ($slide, i) => {
   // add base class to the SLIDE
   $slide.classList.add(...TYPE.SLIDE.CLASSES)
 
@@ -42,7 +42,7 @@ const dots = []
 // create the application's SlideChanger
 const mySlideChanger = SlideChanger(slides)(dots)(CONFIG.ACTIVE_SLIDE)
 // initialize each SLIDE with mySlideChanger in scope
-slides.forEach(initSlide(mySlideChanger))
+slides.forEach(initSlideDot(mySlideChanger))
 // add various window events which will respond to user i/a by calling mySlideChanger
 addWindowEvents(mySlideChanger)
 // append NAV to the NAV_PARENT

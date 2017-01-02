@@ -1,7 +1,7 @@
 import { STATE } from './settings'
 
 /*
-  StateChanger thanges elements to the provided STATE and removes any other previously applied STATE
+  StateChanger changes elements to the provided STATE and removes any other previously applied STATE
  */
 //:: <STATE> -> (HTMLElement<any>, HTMLElement<any>, ...) -> _
 const StateChanger = NEW_STATE => (...elements) => {

@@ -2,11 +2,12 @@
   "version": "1.1.0",
   "description": "Create Simple Web Presentations",
   "scripts": {
-    "compile": "node compile/compile.js && webpack js/main.js bundle.js"
+    "compile": "node compile/compile.js && webpack --config ./webpack.config.js"
   },
   "author": "thurt",
   "license": "ISC",
   "devDependencies": {
+    "babili-webpack-plugin": "0.0.7",
     "handlebars": "^4.0.5",
     "icon-gen": "^1.0.5",
     "webpack": "^2.2.0-rc.3"
