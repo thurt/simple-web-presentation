@@ -1,7 +1,6 @@
 {
-  "name": "thurt",
   "version": "1.0.0",
-  "description": "Developer Profile for Taylor Hurt",
+  "description": "Create Simple Web Presentations",
   "scripts": {
     "compile": "node compile/compile.js && webpack js/main.js bundle.js"
   },
