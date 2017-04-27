@@ -1,5 +1,5 @@
 /*
-  Adds event listeners to window which can change the SLIDE via an instance of SlideChanger
+  Adds event listeners to window which will change the current SLIDE by invoking methods on an instance of SlideChanger
  */
 export default (SlideChanger) => {
   let touchStart = null

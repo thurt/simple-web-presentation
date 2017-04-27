@@ -7,7 +7,7 @@ import { STATE } from './settings'
 const StateChanger = NEW_STATE => (...elements) => {
   elements.forEach($el => {
 
-    // remove any STATE which is not the NEW_STATE
+    // remove all STATE which is not equal to the NEW_STATE
     for (let name in STATE) {
       if (STATE.hasOwnProperty(name) && STATE[name] !== NEW_STATE) {
         $el.classList.remove(...STATE[name].CLASSES)
