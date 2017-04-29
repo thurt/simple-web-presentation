@@ -6,7 +6,8 @@
     "simple-web-presentation": "compile.js"
   },
   "scripts": {
-    "compile": "webpack --config ./webpack.config.js"
+    "compileJs": "webpack --config ./webpack.config.js",
+    "demo": "npm run compileJs && node compile.js ./demo/example-presentation-data.json ./demo"
   },
   "author": "thurt",
   "license": "ISC",
