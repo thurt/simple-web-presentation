@@ -1,5 +1,5 @@
 /*
-  This module sets up the application's navigation functionality
+  When javascript is enabled, this module sets up the application's navigation functionality
  */
 import { CONFIG, TYPE, STATE } from './settings'
 import SlideChanger from './SlideChanger'
@@ -33,7 +33,6 @@ addWindowEvents(mySlideChanger)
 
 // setup the slide's dot
 slides.forEach(($slide, i) => {
-  $slide.classList.add(...TYPE.SLIDE.CLASSES)
   // create a navigation DOT for the SLIDE
   dots[i] = $nav.appendChild(create(TYPE.DOT))
   // add click event listener for the SLIDE's DOT
@@ -46,11 +45,10 @@ window.requestAnimationFrame(() => {
   $navParent.appendChild($nav)
 
   slides.forEach(($slide, i) => {
+    $slide.classList.add(...TYPE.SLIDE.CLASSES)
     // set the initial STATE for the SLIDE/DOT
     if (i === CONFIG.ACTIVE_SLIDE) { // make this SLIDE/DOT STATE be initially ACTIVE
       StateChanger(STATE.ACTIVE)($slide, dots[i])
-    } else { // make this SLIDE/DOT STATE be initially INACTIVE
-      StateChanger(STATE.INACTIVE)($slide, dots[i])
     }
   })
 })

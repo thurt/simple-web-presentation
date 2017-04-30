@@ -24,15 +24,11 @@ a {
   content: '\26AB';
 }
 
-.nav .dot.inactive:before {
+.nav .dot:before {
   content: '\26AA';
 }
 
-.slide {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
+section {
   margin-top: 1em;
   margin-bottom: 1em;
   padding: 5vh 5vw;
@@ -43,28 +39,61 @@ a {
   box-shadow: .05em .1em .2em #888888;
 }
 
-.slide.active {
-  opacity: 1;
-  z-index: 0;
-}
-
-.slide.inactive {
+/* these rules are used if js is enabled, meaning navigation is added with slides appearing/disappearing */
+section.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
   opacity: 0;
-  z-index: 1;
-  transition: opacity 200ms;
+  height: 0;
 }
 
-.slide h1 {
+section.slide.active {
+  animation: FadeIn 200ms ease 0s 1 normal forwards;
+  z-index: 2;
+}
+
+section.slide.inactive {
+  animation: FadeOut 300ms ease-in 0s 1 normal forwards;
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+    height: initial;
+  }
+  100% {
+    opacity: 1;
+    height: initial;
+  }
+}
+@keyframes FadeOut {
+  0% {
+    opacity: 1;
+    height: initial;
+  }
+  99% {
+    opacity: 0;
+    height: initial;
+  }
+  100% {
+    height: 0;
+    opacity: 0;
+  }
+}
+/**************/
+
+section h1 {
   margin: 0;
 }
 
-.slide h2 {
+section h2 {
   margin: 0;
   color: #1693a5;
   font-size: calc(11px + 1vw);
 }
 
-.slide ul {
+section ul {
   padding-left: 1em;
 }
 

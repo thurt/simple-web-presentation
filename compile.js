@@ -11,14 +11,17 @@ const presentation_data = require('./' + path.relative(__dirname, argv._[0]))
 const outputDir = argv._[1]
 
 // load the template strings into runtime
-const page = fs.readFileSync(`${__dirname}/compile/index.html.handlebars`, { encoding: "utf8" })
-const icon = fs.readFileSync(`${__dirname}/compile/favicon.svg.handlebars`, { encoding: "utf8" })
+const page = fs.readFileSync(path.join(__dirname, '/templates/index.html.handlebars'), { encoding: "utf8" })
+const icon = fs.readFileSync(path.join(__dirname, '/templates/favicon.svg.handlebars'), { encoding: "utf8" })
 
 // create the templates
 const page_template = handlebars.compile(page)
 const icon_template = handlebars.compile(icon)
 
 // create the directory to place the files into
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir)
+}
 if (!fs.existsSync(path.join(outputDir, '/css'))) {
   fs.mkdirSync(path.join(outputDir, '/css'))
 }
@@ -27,9 +30,9 @@ if (!fs.existsSync(path.join(outputDir, '/css'))) {
 fs.writeFileSync(path.join(process.cwd(), outputDir, '/index.html'), page_template(presentation_data))
 
 // create the icon file
-fs.writeFileSync(path.join(__dirname, '/compile/favicon.svg'), icon_template(presentation_data))
+fs.writeFileSync(path.join(__dirname, '/templates/favicon.svg'), icon_template(presentation_data))
 
-icongen(path.join(__dirname, '/compile/favicon.svg'), path.join(process.cwd(), outputDir), {
+icongen(path.join(__dirname, '/templates/favicon.svg'), path.join(process.cwd(), outputDir), {
   modes: ['ico'],
   names: {
     ico: 'favicon'
@@ -47,3 +50,6 @@ const themeCss = fs.readFileSync(path.join(__dirname, '/css/default.theme.css'))
 fs.writeFileSync(path.join(process.cwd(), outputDir, '/css/base.css'), baseCss)
 fs.writeFileSync(path.join(process.cwd(), outputDir, '/css/custom.css'), customCss)
 fs.writeFileSync(path.join(process.cwd(), outputDir, '/css/default.theme.css'), themeCss)
+
+//cleanup
+fs.unlink(path.join(__dirname, '/templates/favicon.svg'))

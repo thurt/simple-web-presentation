@@ -7,7 +7,7 @@
   },
   "scripts": {
     "compileJs": "webpack --config ./webpack.config.js",
-    "demo": "npm run compileJs && node compile.js ./demo/example-presentation-data.json ./demo"
+    "demo": "npm run compileJs && node compile.js ./example-presentation-data.json ./demo"
   },
   "author": "thurt",
   "license": "ISC",
