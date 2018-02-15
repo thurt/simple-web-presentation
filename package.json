@@ -1,5 +1,5 @@
 {
-  "version": "2.1.0",
+  "version": "2.2.0",
   "name": "simple-web-presentation",
   "description": "Create Simple Web Presentations",
   "bin": {
@@ -7,8 +7,7 @@
   },
   "scripts": {
     "compileJs": "webpack --config ./webpack.config.js",
-    "demo":
-      "npm run compileJs && node compile.js ./example-presentation-data.yaml ./demo"
+    "demo": "npm run compileJs && node compile.js ./example-presentation-data.yaml ./demo"
   },
   "author": "thurt",
   "license": "ISC",

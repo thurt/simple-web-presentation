@@ -2,32 +2,29 @@
 
 **Quickly create simple web presentations.**
 
-_Simplifies the process to just writing a few lines of YAML/JSON._
+_Simplifies the process to just writing a few lines of YAML/JSON. Responsive design makes your presentation look good on small and large screens. Automatic favicon creation based on presentation background._
 
-_Responsive design makes your presentation look good on small and large screens._
-
-_Automatic favicon creation based on presentation background._
+![Demo Image](demo_image.png)
 
 **Getting Started**
-![Demo Image](demo_image.png)
 
 To start creating a presentation, you can install and run `simple-web-presentation` in your own project
 
 ```
-npm install --save-dev simple-web-presentation
+npm install --save-dev thurt/simple-web-presentation
 ```
 
 then create your own `presentation-data.yaml` or `presentation-data.json` file and compile the code like so
 
 ```
-./node_modules/.bin/simple-web-presentations presentation-data.yaml presentation.html
+./node_modules/.bin/simple-web-presentation presentation-data.yaml output/
 ```
 
 You may prefer to create an npm script to execute this command, like
 
 ```
 "script": {
-    "compile": "simple-web-presentation presentation-data.yaml presentation.html"
+    "compile": "simple-web-presentation presentation-data.yaml output/"
 }
 ```
 

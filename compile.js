@@ -34,7 +34,6 @@ if (!fs.existsSync(path.join(outputDir, '/css'))) {
 }
 
 // create the html file
-console.log(presentation_data);
 fs.writeFileSync(
   path.join(process.cwd(), outputDir, '/index.html'),
   page_template(presentation_data),
