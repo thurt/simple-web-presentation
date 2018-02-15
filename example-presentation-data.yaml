@@ -1,0 +1,23 @@
+---
+  author: "John Doe"
+  description: "Learn more about presentations in this demo presentation"
+  title: "Demo Presentation"
+  theme: "css/default.theme.css"
+  bg-start-color: "#F1F2B5"
+  bg-end-color: "#135058"
+  slides: 
+    - heading: "Introduction"
+      sub-heading: "My first presentation"
+      img: "http://loremflickr.com/320/240/camel"
+      img-caption: "Sample Image"
+      contents: 
+        - p: "This is a demo presentation."
+    - heading: "Introduction"
+      sub-heading: "More information"
+      contents: 
+        - p: "Here is a list"
+        - ul: 
+            - "A"
+            - "B"
+            - "C"
+

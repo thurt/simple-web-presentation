@@ -7,7 +7,8 @@
   },
   "scripts": {
     "compileJs": "webpack --config ./webpack.config.js",
-    "demo": "npm run compileJs && node compile.js ./example-presentation-data.json ./demo"
+    "demo":
+      "npm run compileJs && node compile.js ./example-presentation-data.yaml ./demo"
   },
   "author": "thurt",
   "license": "ISC",
@@ -16,8 +17,9 @@
     "webpack": "^2.2.0-rc.3"
   },
   "dependencies": {
-    "minimist": "^1.2.0",
+    "better-require": "0.0.3",
     "handlebars": "^4.0.5",
-    "icon-gen": "^1.0.5"
+    "icon-gen": "^1.0.5",
+    "minimist": "^1.2.0"
   }
 }
