@@ -1,49 +1,40 @@
-Simple Web Presentation
----
+## Simple Web Presentation
 
 **Quickly create simple web presentations.**
 
-*Simplifies the process to just writing a few lines of JSON.*
+_Simplifies the process to just writing a few lines of YAML/JSON._
 
-*Responsive design makes your presentation look good on small and large screens.*
+_Responsive design makes your presentation look good on small and large screens._
 
-*Automatic favicon creation based on presentation background.*
-
+_Automatic favicon creation based on presentation background._
 
 **Getting Started**
-
-Clone this repo
-
-```
-git clone https://github.com/thurt/simple-web-presentation
-```
-
-Go to the cloned directory
-
-```
-cd simple-web-presentation
-```
-Install the compile-time dependencies
-```
-npm install
-```
-
-Compile the presentation
-
-```
-npm run compile
-```
-The compilation process creates an `index.html` file in the root directory. This file is your presentation.
-
-Start up your web browser and open your presentation. You will see that your presentation was compiled with sample data.
-
 ![Demo Image](demo_image.png)
 
-To start creating your own presentation, make modifications to `compile/presentation-data.json`. Then compile again.
+To start creating a presentation, you can install and run `simple-web-presentation` in your own project
+
+```
+npm install --save-dev simple-web-presentation
+```
+
+then create your own `presentation-data.yaml` or `presentation-data.json` file and compile the code like so
+
+```
+./node_modules/.bin/simple-web-presentations presentation-data.yaml presentation.html
+```
+
+You may prefer to create an npm script to execute this command, like
+
+```
+"script": {
+    "compile": "simple-web-presentation presentation-data.yaml presentation.html"
+}
+```
 
 **Presentation Data Guidelines**
 
 Inside `presentation-data.json`, you **must** specify:
+
 * `author` - your name
 * `description` - a short description about the contents of your presentation
 * `title` - the presentation's title
@@ -52,6 +43,7 @@ Inside `presentation-data.json`, you **must** specify:
 * `slides` - should be an array of slide objects
 
 Inside each slide object, you may **optionally** specify:
+
 * `heading` - text
 * `sub-heading` text
 * `img` - filepath or uri to an image file
@@ -59,6 +51,7 @@ Inside each slide object, you may **optionally** specify:
 * `contents` - an array of content objects
 
 Each content object should contain only one key-value pair.
+
 ```
 // Examples
 content: [
@@ -70,6 +63,7 @@ content: [
   ] }
 ]
 ```
+
 Usually, `p` will be the most common key used for your content objects.
 
 The only special case is when the key is `ul` or `ol`--in that case the value must be an array of strings (see example above).
