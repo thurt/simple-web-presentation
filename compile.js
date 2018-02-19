@@ -20,10 +20,15 @@ const icon = fs.readFileSync(
   path.join(__dirname, '/templates/favicon.svg.handlebars'),
   {encoding: 'utf8'},
 );
+const css = fs.readFileSync(
+  path.join(__dirname, '/templates/default.theme.css.handlebars'),
+  {encoding: 'utf8'},
+);
 
 // create the templates
 const page_template = handlebars.compile(page);
 const icon_template = handlebars.compile(icon);
+const css_template = handlebars.compile(css);
 
 // create the directory to place the files into
 if (!fs.existsSync(outputDir)) {
@@ -45,6 +50,12 @@ fs.writeFileSync(
   icon_template(presentation_data),
 );
 
+// create the css theme file
+fs.writeFileSync(
+  path.join(process.cwd(), outputDir, '/css/default.theme.css'),
+  css_template(presentation_data),
+);
+
 icongen(
   path.join(__dirname, '/templates/favicon.svg'),
   path.join(process.cwd(), outputDir),
@@ -63,17 +74,10 @@ fs.writeFileSync(path.join(process.cwd(), outputDir, '/bundle.js'), bundle);
 // copy over css files
 const baseCss = fs.readFileSync(path.join(__dirname, '/css/base.css'));
 const customCss = fs.readFileSync(path.join(__dirname, '/css/custom.css'));
-const themeCss = fs.readFileSync(
-  path.join(__dirname, '/css/default.theme.css'),
-);
 fs.writeFileSync(path.join(process.cwd(), outputDir, '/css/base.css'), baseCss);
 fs.writeFileSync(
   path.join(process.cwd(), outputDir, '/css/custom.css'),
   customCss,
-);
-fs.writeFileSync(
-  path.join(process.cwd(), outputDir, '/css/default.theme.css'),
-  themeCss,
 );
 
 //cleanup
